@@ -1,0 +1,18 @@
+.globl mullet
+
+mullet:
+
+	li s1, 0 #res = 0
+
+for:
+	li s0, 0 #i = 0
+
+loop:
+	bge s0, a0, endloop#!(i < a0) = (i >= a0)
+	add s1, s1, a1 #math
+	addi s0, s0, 1 #i += 1
+	b loop
+	
+endloop:
+	mv a0, s1
+	ret

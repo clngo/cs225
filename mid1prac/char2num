@@ -1,0 +1,13 @@
+.globl char2num
+
+char2num: 
+	li t0, 48
+	li t1, 57
+	blt a0, t0, if
+	bgt a0, t1 if
+	addi a0, a0 -48
+	ret
+if: 
+	li a0, -1
+	ret 
+

@@ -1,0 +1,17 @@
+.text
+main:
+	lw t1, A
+	la t2, C
+	lb t3, 2(t2)
+	lb t0, 5(t2)
+	lw t4, D
+	lbu t5, 1(t2)
+	la t6, E
+	lb t6, -6(t6)
+	
+.data
+A: .word 0x11223344
+B: .byte 'a'
+C: .word 0xaabbccdd
+D: .string "test string"
+E: .word 0x12345678

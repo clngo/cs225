@@ -1,0 +1,22 @@
+.globl parity
+parity:
+	  li t0, 1 #bit check
+	  li s1, 0 #counter = 0
+	  
+while:
+	beqz a0, endwhile #a0=myNum !(mynum !=0)
+if: 
+	and t1, a0, t0 #if mynum & bit != 0
+	beqz t1, else # !(t1 == 1) or !(t1 != 0)
+	addi, s1, s1, 1 #counter += 1
+else:
+	srli a0, a0, 1
+	b while
+	
+endwhile:
+	li t3, 1
+	and a0, s1, t3
+	ret
+	
+
+	

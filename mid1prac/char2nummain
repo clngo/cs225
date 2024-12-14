@@ -1,0 +1,79 @@
+.data
+	printchar: .string "char2num enter: "
+	printmullet: .string"\nmullet enter1: "
+	printparity: .string"\nparity enter: "
+	printminof3: .string"\nminof3 enter: "
+.text
+main: 
+#char2num
+	la a0, printchar
+	li a7, 4
+	ecall
+	
+	li a7, 12 #read char
+	ecall
+	
+	jal char2num
+	
+	li a7, 1 #print int
+	ecall
+	
+#mullet
+	la a0, printmullet
+	li a7, 4
+	ecall
+	
+	li a7, 5 #read 1st int
+	ecall
+	mv s0, a0
+	
+	li a7, 5 #read 2nd int
+	ecall
+	
+	
+	mv a1, s0
+	jal mullet 
+	
+	li a7, 1 #print int
+	ecall
+	
+	
+	
+#parity
+	la a0, printparity
+	li a7, 4
+	ecall
+	
+	li a7, 5
+	ecall
+	
+	jal parity
+	
+	li a7, 1
+	ecall
+	
+#mindof3
+	la a0, printminof3
+	li a7, 4
+	ecall
+	
+	li a7, 5
+	ecall
+	mv s2, a0
+	
+	li a7, 5
+	ecall
+	mv s1, a0
+	
+	li a7, 5
+	ecall
+	
+	mv a2, s2
+	mv a1, s1
+	jal minof3
+	
+	li a7, 1
+	ecall
+	
+	li a7, 10 #exit program
+	ecall	

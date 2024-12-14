@@ -1,0 +1,15 @@
+.globl minof3
+minof3:
+
+b0:
+	bge a0, a1, b1
+	bge a0, a2, b2
+	ret
+b1:
+	bge a1, a2, b2
+	mv a0, a1
+	ret
+
+b2:
+	mv a0, a2
+	ret
